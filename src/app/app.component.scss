@@ -1,0 +1,57 @@
+p-button {
+    margin: 1px;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.chart-wrapper {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.left-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    align-items: center;
+}
+
+.center-wrapper {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.right-wrapper {
+    display: flex;
+    width: 20%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-grid {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.flex-grid .column-item {
+ flex-basis:100%;}
+.flex-grid .column-item:nth-of-type(1),
+.flex-grid .column-item:nth-of-type(2) {
+    flex-basis:47%;
+    padding: 10px;
+    margin: 10px;
+    height: 40%;
+}

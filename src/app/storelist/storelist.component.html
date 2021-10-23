@@ -1,0 +1,16 @@
+<p-orderList class="margin-top: 20px" [value]="stores" [listStyle]="{'max-height':'30rem'}" header="List of Stores" filterBy="name" filterPlaceholder="Filter by name">
+    <ng-template let-store pTemplate="store">
+        <div class="store" (click)="onSelectStore(store)">
+            <div class="image-container">
+                    <img src="{{store.imageAddress}}" [alt]="store.name" class="store-image" />
+            </div>
+            <div class="store-list-detail">
+                <h5 class="p-mb-2">{{store.name}}</h5>
+                <span class="store-category">{{store.category}}</span>
+            </div>
+            <div class="store-list-action">
+                <i class="pi pi-tag store-category-icon"></i>
+            </div>
+        </div>
+    </ng-template>
+</p-orderList>

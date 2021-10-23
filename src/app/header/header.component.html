@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="max-width margin-bottom: 20px">
+      <p-toolbar>
+        <div class="p-toolbar-group-left">
+            <p-button 
+              (click)="comment.toggle($event)"
+              label="Give us some feedback" 
+              icon="pi pi-comment"></p-button>
+        </div>
+      
+        <div class="p-toolbar-group-center">
+          <div class="center-wrapper">
+            <h1><b>Sales Prediction</b></h1>
+            <h3>HackGT8</h3>
+          </div>
+        </div>
+        
+        <div class="p-toolbar-group-right">
+            <p-button 
+              label="Check out our vision" 
+              icon="pi pi-eye" 
+              (click)="vision.toggle($event)"
+              styleClass="p-button-success"></p-button>
+        </div>
+      </p-toolbar>
+    </div>
+  </div>
+  <p-overlayPanel #comment [showCloseIcon]="true" [style]="{width: '450px'}">
+    <h4>Comment:</h4>
+    <div class="p-field">
+      <textarea
+        #commentInputTextarea
+        pInputTextarea
+        class="input-wrapper"
+        id="comment"
+        type="comment"
+        aria-describedby="comment-help"
+        [(ngModel)]="commentInput"></textarea>
+      <small 
+        id="comment-help"
+        *ngIf="commentInputTextarea.classList.contains('ng-touched') && (commentInput.length === 0)"
+        class="p-error">Please add a comment.</small>
+    </div>
+    
+    <p-button
+      [disabled]="commentInput.length === 0"
+      label="Submit" 
+      styleClass="p-button-success"
+      (click)="comment.hide(); onHide();"></p-button>
+  </p-overlayPanel>
+  
+  <p-overlayPanel #vision [showCloseIcon]="true" [style]="{width: '700px'}">
+    <p-fieldset 
+      [collapsed]="true"
+      legend="Where do we see ourselves in 5 years?" 
+      [toggleable]="true">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </p-fieldset>
+    <p-fieldset
+      [collapsed]="true"
+      legend="What's our plan?" 
+      [toggleable]="true">
+      <p-timeline [value]="events1" align="alternate" styleClass="customized-timeline">
+        <ng-template pTemplate="marker" let-event>
+            <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                <i [ngClass]="event.icon"></i>
+            </span>
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+            <p-card [header]="event.status" [subheader]="event.date">
+                <p>Talking about things here</p>
+            </p-card>
+        </ng-template>
+    </p-timeline>
+    </p-fieldset>
+  </p-overlayPanel>

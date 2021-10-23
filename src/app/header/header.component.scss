@@ -1,0 +1,24 @@
+.center-wrapper {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-wrapper {
+    height: 10px;
+    margin: 10px;
+}
+
+.input-wrapper {
+    width: calc(40vh);
+    height: calc(10vh);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+invalid-input-wrapper {
+    border: 1px red;
+}
