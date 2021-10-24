@@ -1,4 +1,6 @@
-# HackGT: 4C
+# 4C: A Novel Take on Retail Expansion/Location Strategy Using Machine Learning (Neural Networks and Convolutional Neural Networks)
+
+Submission for HackGT8
 
 Check out our website!: https://retail-space-329923.web.app
 
