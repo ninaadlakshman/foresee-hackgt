@@ -5,7 +5,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 
 const routes: Routes = [
   {path: '', component: StorelistComponent},
-  {path: 'forecasting/:name', component: ForecastComponent},
+  {path: 'forecasting/:latitude/:longitude', component: ForecastComponent},
   {path: '**', component: StorelistComponent}
 ];
 

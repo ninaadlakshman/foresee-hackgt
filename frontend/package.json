@@ -28,6 +28,7 @@
     "primeng": "^11.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "update": "^0.7.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

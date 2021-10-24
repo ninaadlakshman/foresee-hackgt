@@ -7,3 +7,7 @@
     align-items: center;
     margin-top: 20px;
 }
+.disable-click {
+    pointer-events: none;
+    cursor: default;
+}

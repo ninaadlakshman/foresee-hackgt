@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { FindNearby } from 'src/interfaces/findnearby.class';
+import { NCRService } from 'src/services/ncr.service';
 declare var google: any;
 
 @Component({
@@ -9,6 +12,8 @@ declare var google: any;
 })
 export class ForecastComponent implements OnInit {
   currentLabel: string = "No location selected"
+  latitude: number = 0
+  longitude: number = 0
   estimatedFootCount: string = "N/A";
   successScore: string = "N/A";
   options: any;
@@ -26,11 +31,17 @@ export class ForecastComponent implements OnInit {
     
     draggable: boolean = false;
     
-    constructor(private messageService: MessageService) {}
+    constructor(
+        private messageService: MessageService,
+        private readonly route: ActivatedRoute,
+        private router: Router,
+        private ncrService: NCRService) {}
 
     ngOnInit() {
+        this.latitude = Number(this.route.snapshot.paramMap.get('latitude'));
+        this.longitude = Number(this.route.snapshot.paramMap.get('longitude'));
         this.options = {
-            center: {lat: 33.7285, lng: -84.5077},
+            center: {lat: this.latitude, lng: this.longitude},
             zoom: 12
         };
         
@@ -66,6 +77,12 @@ export class ForecastComponent implements OnInit {
         this.markerTitle = '';
         this.dialogVisible = false;
     }
+
+    addMarkerWithVals(latitude: number, longitude: number, labelTitle: string) {
+        this.clear();
+        this.overlays.push(new google.maps.Marker({position:{lat: latitude, lng: longitude}, title:labelTitle, draggable: this.draggable}));
+        this.dialogVisible = false;
+    }
     
     handleDragEnd(event: any) {
         this.messageService.add({severity:'info', summary:'Marker Dragged', detail: event.overlay.getTitle()});
@@ -74,7 +91,7 @@ export class ForecastComponent implements OnInit {
     initOverlays() {
         if (!this.overlays||!this.overlays.length) {
             this.overlays = [
-                new google.maps.Marker({position: {lat: 33.8026, lng: -84.4107}, title:"Walmart Super Center"}),
+                new google.maps.Marker({position: {lat: this.latitude, lng: this.longitude}, title:"Walmart Super Center"}),
             ];
         }
     }
@@ -92,6 +109,14 @@ export class ForecastComponent implements OnInit {
         this.estimatedFootCount = "N/A";
         this.successScore = "N/A";
         this.overlays = [];
+    }
+
+    onFindNearby() {
+        
+    }
+
+    onGoBack() {
+        this.router.navigate(['/']);
     }
 
 

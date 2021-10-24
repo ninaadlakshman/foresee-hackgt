@@ -12,6 +12,11 @@
     margin: 10px;
 }
 
+.disable-click {
+    pointer-events: none;
+    cursor: default;
+}
+
 .input-wrapper {
     width: calc(40vh);
     height: calc(10vh);

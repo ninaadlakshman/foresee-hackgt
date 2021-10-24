@@ -24,7 +24,7 @@ export class StorelistComponent implements OnInit {
   }
 
   onSelectStore(store: Store) {
-    this.router.navigate(['forecasting', store.name]);
+    this.router.navigate(['forecasting', store.latitude, store.longitude]);
   }
 
 }

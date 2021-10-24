@@ -1,7 +1,13 @@
 <p-card>
-    <ng-template pTemplate="header">
-        <p-tag class="margin-left: 25px" value="Select a location to expand to..." icon="pi pi-search"></p-tag>
+    <ng-template pTemplate="header" class="margin-bottom: 5px">
+        <p align-left="">
+            <button type="button" pButton label="Select a location to expand to..." icon="pi pi-search" style="margin-left:.25em; float: left;" class="disable-click"></button>
+        </p>
+        <p align-right="">
+            <button type="button" pButton label="Go Back" icon="pi pi-chevron-left" class="p-button-help" (click)="onGoBack()" style="margin-right:.25em; float: right;"></button>
+        </p>
     </ng-template>
+    <br>
     <h3><b>{{currentLabel}}</b></h3>
     <hr>
     <h5>Estimated Foot Count: {{estimatedFootCount}}</h5>
@@ -14,7 +20,8 @@
 
 <button type="button" pButton label="Clear" icon="pi pi-times" (click)="clear()" style="margin-right:.25em"></button>
 <button type="button" pButton label="Zoom In" icon="pi pi-plus" (click)="zoomIn(gmap.getMap())" style="margin-right:.25em"></button>
-<button type="button" pButton label="Zoom Out" icon="pi pi-minus" (click)="zoomOut(gmap.getMap())"></button>
+<button type="button" pButton label="Zoom Out" icon="pi pi-minus" (click)="zoomOut(gmap.getMap())" style="margin-right:.25em"></button>
+<button type="button" pButton label="Find Nearby (Powered By NCR)" icon="pi pi-directions" (click)="onFindNearby()"></button>
 
 <p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Location" [style]="{width: '300px'}">
     <div class="p-grid p-fluid" *ngIf="selectedPosition">
