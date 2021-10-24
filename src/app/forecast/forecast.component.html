@@ -2,14 +2,14 @@
     <ng-template pTemplate="header">
         <p-tag class="margin-left: 25px" value="Select a location to expand to..." icon="pi pi-search"></p-tag>
     </ng-template>
-    Body Content
-    <ng-template pTemplate="footer">
-        Footer content here
-    </ng-template>
+    <h3><b>{{currentLabel}}</b></h3>
+    <hr>
+    <h5>Estimated Foot Count: {{estimatedFootCount}}</h5>
+    <h5>Success Score: {{successScore}}</h5>
 </p-card>
 
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-<p-gmap #gmap [style]="{'width':'100%','height':'320px', 'margin-bottom': '1em'}" [options]="options" [overlays]="overlays"
+<p-gmap #gmap [style]="{'width':'100%','height':'500px', 'margin-bottom': '1em'}" [options]="options" [overlays]="overlays"
     (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)" (onOverlayDragEnd)="handleDragEnd($event)"></p-gmap>
 
 <button type="button" pButton label="Clear" icon="pi pi-times" (click)="clear()" style="margin-right:.25em"></button>
@@ -36,3 +36,4 @@
         </div>
     </ng-template>
 </p-dialog>
+

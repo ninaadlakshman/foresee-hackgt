@@ -8,7 +8,9 @@ declare var google: any;
   styleUrls: ['./forecast.component.scss']
 })
 export class ForecastComponent implements OnInit {
-
+  currentLabel: string = "No location selected"
+  estimatedFootCount: string = "N/A";
+  successScore: string = "N/A";
   options: any;
   isBinary: string = 'true';
     
@@ -58,7 +60,9 @@ export class ForecastComponent implements OnInit {
     }
     
     addMarker() {
+        this.clear();
         this.overlays.push(new google.maps.Marker({position:{lat: this.selectedPosition.lat(), lng: this.selectedPosition.lng()}, title:this.markerTitle, draggable: this.draggable}));
+        this.currentLabel = this.markerTitle;
         this.markerTitle = '';
         this.dialogVisible = false;
     }
@@ -84,6 +88,9 @@ export class ForecastComponent implements OnInit {
     }
     
     clear() {
+        this.currentLabel = "No location selected";
+        this.estimatedFootCount = "N/A";
+        this.successScore = "N/A";
         this.overlays = [];
     }
 
