@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from 'primeng/api';
+import { MessageService, SharedModule } from 'primeng/api';
 import { ButtonModule } from 'primeng/button'
 import {InputNumberModule} from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
@@ -22,14 +22,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { StorelistComponent } from './storelist/storelist.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ItemlistComponent } from './itemlist/itemlist.component';
 import {DataViewModule} from 'primeng/dataview';
+import {SplitterModule} from 'primeng/splitter';
+import { ForecastComponent } from './forecast/forecast.component';
+import {GMapModule} from 'primeng/gmap';
+import { FormsModule } from '@angular/forms';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
+import { TagModule } from 'primeng/tag';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StorelistComponent,
-    ItemlistComponent
+    ForecastComponent
   ],
   imports: [
     CommonModule,
@@ -52,10 +60,18 @@ import {DataViewModule} from 'primeng/dataview';
     TabViewModule,
     OrderListModule,
     HttpClientModule,
-    DataViewModule
+    DataViewModule,
+    SplitterModule,
+    GMapModule,
+    FormsModule,
+    CheckboxModule,
+    DialogModule,
+    ToastModule,
+    TagModule
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
