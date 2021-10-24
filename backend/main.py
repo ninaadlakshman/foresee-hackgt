@@ -10,8 +10,13 @@ def prepare_features(lat: float, lon: float):
 def get_images_per_store(df: pd.DataFrame):
     for row in df.index:
         loc, lat, lon = df['loc'][row], df['lat'][row], df['lon'][row]
-        util.download_satellite_image(loc, lat, lon, 16)
-        print(f'done with image: {loc}')
+        util.download_satellite_image(f'{loc}_x15', lat, lon, 15)
+        #util.download_satellite_image(f'{loc}_x16', lat, lon, 16)
+        #util.download_satellite_image(f'{loc}_x14', lat, lon, 14)
+        #util.download_satellite_image(f'{loc}_x12', lat, lon, 12)
+
+        print(f'done with image: {loc}. [{row + 1}/{len(df.index)}]')
+
 
 def convert_raw_to_df():
     data = {}
