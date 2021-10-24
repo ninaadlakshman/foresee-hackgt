@@ -1,3 +1,4 @@
+
 <p-card>
     <ng-template pTemplate="header" class="margin-bottom: 5px">
         <p align-left="">
@@ -10,8 +11,14 @@
     <br>
     <h3><b>{{currentLabel}}</b></h3>
     <hr>
-    <h5>Estimated Foot Count: {{estimatedFootCount}}</h5>
-    <h5>Success Score: {{successScore}}</h5>
+    <div *ngIf="isLoading">
+        <p-progressSpinner></p-progressSpinner>
+        <h6>Our ML model uses traffic conditions, socioeconomic demographics, satellite imaging, and more to predict foot traffic!</h6>
+    </div>
+    <div *ngIf="!isLoading">
+        <h5>Estimated Daily Foot Traffic Count: {{estimatedFootCount}}</h5>
+    </div>
+    
 </p-card>
 
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
@@ -21,7 +28,7 @@
 <button type="button" pButton label="Clear" icon="pi pi-times" (click)="clear()" style="margin-right:.25em"></button>
 <button type="button" pButton label="Zoom In" icon="pi pi-plus" (click)="zoomIn(gmap.getMap())" style="margin-right:.25em"></button>
 <button type="button" pButton label="Zoom Out" icon="pi pi-minus" (click)="zoomOut(gmap.getMap())" style="margin-right:.25em"></button>
-<button type="button" pButton label="Find Nearby (Powered By NCR)" icon="pi pi-directions" (click)="onFindNearby()"></button>
+<button type="button" pButton label="Find Nearby" icon="pi pi-directions" (click)="onFindNearby()"></button>
 
 <p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Location" [style]="{width: '300px'}">
     <div class="p-grid p-fluid" *ngIf="selectedPosition">

@@ -31,6 +31,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import { TagModule } from 'primeng/tag';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { TagModule } from 'primeng/tag';
     CheckboxModule,
     DialogModule,
     ToastModule,
-    TagModule
+    TagModule,
+    ProgressSpinnerModule
   ],
   providers: [
     HttpClient,
