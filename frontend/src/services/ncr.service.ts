@@ -12,7 +12,7 @@ export class NCRService {
   constructor(private readonly http: HttpClient) { }
   
   findNearby(latitude: number, longitude: number): Observable<FindNearby[]> {
-    //The 4C tea has decided to redact API Call due to cybersecurity concerns.
+    //The 4C team has decided to redact API Call due to cybersecurity concerns.
     return this.http.get<FindNearby[]>("");
   }
 
